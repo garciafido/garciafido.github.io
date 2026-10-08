@@ -20,6 +20,21 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Selector de idioma, arriba a la derecha: el actual en negrita, el otro como enlace. */
+.idioma {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--suave);
+}
+
+.idioma strong { color: var(--texto); }
+
+.idioma a { margin-left: 0.15rem; }
+
 main {
   max-width: 44rem;
   margin: 0 auto;
