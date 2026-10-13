@@ -146,12 +146,9 @@ strong { font-weight: 600; }
 
 .tarjeta h3 a { border-bottom: 0; }
 
-.datos {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: var(--suave);
-}
+.tarjeta ul { margin-bottom: 0.4rem; }
+
+.tarjeta li { margin: 0.35rem 0; }
 
 .pie-areas {
   margin-top: 2.4rem;
