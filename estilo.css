@@ -146,6 +146,9 @@ strong { font-weight: 600; }
 
 .tarjeta h3 a { border-bottom: 0; }
 
+/* Portada: aire entre la línea de enlaces y el perfil. */
+.perfil { margin-top: 1.6rem; }
+
 .tarjeta ul { margin-bottom: 0.4rem; }
 
 .tarjeta li { margin: 0.35rem 0; }
