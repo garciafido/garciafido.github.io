@@ -20,25 +20,10 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Selector de idioma, arriba a la derecha: el actual en negrita, el otro como enlace. */
-.idioma {
-  position: absolute;
-  top: 1.4rem;
-  right: 1.5rem;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  color: var(--suave);
-}
-
-.idioma strong { color: var(--texto); }
-
-.idioma a { margin-left: 0.15rem; }
-
 main {
   max-width: 44rem;
   margin: 0 auto;
-  padding: 4.5rem 1.25rem 2rem;
+  padding: 2.5rem 1.25rem 2rem;
 }
 
 h1 {
@@ -72,6 +57,9 @@ a {
 
 a:hover { border-bottom-color: var(--acento); }
 
+/* Las direcciones largas (DOI, handle) se cortan antes de desbordar el ancho de un celular. */
+main a { overflow-wrap: anywhere; }
+
 h2 {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -102,7 +90,7 @@ li::marker { color: var(--acento); }
 strong { font-weight: 600; }
 
 /* Publicaciones: sangría francesa y un punto más chicas. */
-#publicaciones p {
+#publicaciones p, #publications p {
   font-size: 0.94rem;
   line-height: 1.55;
   padding-left: 1.4rem;
@@ -120,6 +108,82 @@ strong { font-weight: 600; }
   border-radius: 6px;
 }
 
+/* Barra: las secciones a la izquierda, el idioma a la derecha; la página actual, en negrita. */
+.barra {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.3rem 1.25rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  align-items: baseline;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--suave);
+}
+
+.barra strong { color: var(--texto); }
+
+.barra .idioma { margin-left: auto; letter-spacing: 0.08em; }
+
+/* Portada: bloques de las áreas, dos del mismo tamaño y uno a todo el ancho. */
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin: 2.4rem 0 1.1rem;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem 0.9rem;
+}
+
+.tarjeta h3 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+
+.tarjeta h3 a { border-bottom: 0; }
+
+.datos {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--suave);
+}
+
+.pie-areas {
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linea);
+  font-size: 0.95rem;
+}
+
+/* Listas uniformes (filas de los CV): período a la izquierda, descripción y lugar a la derecha. */
+.item {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--linea);
+}
+
+.item > * { grid-column: 2; }
+
+.item > .periodo {
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--suave);
+  padding-top: 0.2rem;
+}
+
+.item p, .item ul { margin-bottom: 0.4rem; }
+
+.item .lugar { font-size: 0.88rem; color: var(--suave); }
+
 footer {
   max-width: 44rem;
   margin: 0 auto;
@@ -134,4 +198,7 @@ footer {
   body { font-size: 17px; }
   main { padding-top: 3rem; }
   h1 { font-size: 2rem; }
+  .tarjetas { grid-template-columns: 1fr; }
+  .item { grid-template-columns: minmax(0, 1fr); }
+  .item > *, .item > .periodo { grid-column: 1; grid-row: auto; }
 }
